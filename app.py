@@ -4,6 +4,7 @@ import os
 import csv
 import pickle
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl','rb'))
@@ -14,7 +15,7 @@ def hello():
 
 @app.route('/predict', methods=['POST','GET'])
 def predict():
-    file = request.files['testfile']
+    file = request.form['predict']
     df = pd.read_csv(file)
     # check for categorical attributes
     cat_col = []
@@ -51,7 +52,6 @@ def predict():
     # create small values for establishment year
     df['Outlet_Years'] = 2013 - df['Outlet_Establishment_Year']
 
-    from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
     df['Outlet'] = le.fit_transform(df['Outlet_Identifier'])
     cat_col = ['Item_Fat_Content', 'Item_Type', 'Outlet_Size', 'Outlet_Location_Type', 'Outlet_Type', 'New_Item_Type']
@@ -64,7 +64,8 @@ def predict():
     x = df.iloc[:,:]
     y = df['Item_Outlet_Sales']
     output = prediction(model,x,y)
-    return render_template('bigmart.html',pred='Prediction of sales is calculating {}'.format(output))
+    print(output)
+    return render_template('bigmart.html',pred='Prediction of sales is calculated as {}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
