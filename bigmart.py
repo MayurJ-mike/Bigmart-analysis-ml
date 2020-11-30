@@ -54,23 +54,23 @@ for col in cat_col:
 df = pd.get_dummies(df, columns=['Item_Fat_Content', 'Outlet_Size', 'Outlet_Location_Type', 'Outlet_Type', 'New_Item_Type'])
 #Input Split
 X = df.drop(columns=['Outlet_Establishment_Year', 'Item_Identifier', 'Outlet_Identifier', 'Item_Outlet_Sales'])
-y = df['Item_Outlet_Sales']
+Y = df['Item_Outlet_Sales']
 
 #Model Training
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import mean_squared_error
-def train(model, X, y):
+def train(model, X, Y):
     # train the model
-    model.fit(X, y)  
+    model.fit(X, Y)  
     # predict the training set
     pred = model.predict(X) 
     # perform cross-validation
-    cv_score = cross_val_score(model, X, y, scoring='neg_mean_squared_error', cv=5)
+    cv_score = cross_val_score(model, X, Y, scoring='neg_mean_squared_error', cv=5)
     cv_score = np.abs(np.mean(cv_score))
 
 from sklearn.ensemble import RandomForestRegressor
 model = RandomForestRegressor()
-train(model, X, y)
+train(model, X, Y)
 coef = pd.Series(model.feature_importances_, X.columns).sort_values(ascending=False)
 
 file = open('model.pkl','wb')
