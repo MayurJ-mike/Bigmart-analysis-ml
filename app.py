@@ -75,11 +75,11 @@ def predict():
     # Input Split
     X = df.drop(columns=['Outlet_Establishment_Year',
                          'Item_Identifier', 'Outlet_Identifier'])
-    print(x)
-    output = model.predict(X)
-    print(output)
-    return render_template('bigmart.html', pred='{}'.format(output))
+
+    output = model.predict(X).tolist()
+    print(type(output))
+    return render_template('bigmart.html', pred=output)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True)

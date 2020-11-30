@@ -188,7 +188,13 @@
 						</div>
 					</div>
 
-					<div class="row">The sales prediction is calculated as {{pred}}</div>
+					<div class="row">
+            <div class="col-md-12">
+									{% for k in pred %}
+									<h3>Prediction of sales for entry {{loop.index}} is calculated as {{k}}</h3>
+									{% endfor %}
+            </div>
+          </div>
 
 					<div class="row">
 						<div class="col-md-6 section-3-box wow fadeInLeft">
