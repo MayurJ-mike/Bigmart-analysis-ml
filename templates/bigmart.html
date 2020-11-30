@@ -199,10 +199,12 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-6 section-3-box wow fadeInLeft">
+						<div class="col-md-12 section-3-box wow fadeInLeft">
 							<div class="row">
-								<div class="col-md-4 col-md-6">
-									<h3>{{pred}}</h3>
+								<div class="col-md-12">
+									{% for k in pred %}
+									<h3>Prediction of sales for entry {{loop.index}} is calculated as {{k}}</h3>
+									{% endfor %}
 								</div>
 							</div>
 						</div>
