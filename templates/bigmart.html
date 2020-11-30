@@ -168,16 +168,6 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-4 col-6 col-8 col-12 section-5-box wow fadeInLeft">
-							<!-- <form class="md-form" action="/predict" onsubmit="return predict()" method="POST">
-								<div class="file-field medium">
-									<div class="btn btn-outline-primary waves-effect float-left">
-										<span>Choose files to predict sales<i class="fas fa-cloud-upload-alt ml-3"
-												aria-hidden="true"></i></span>
-										<input type="file" name="predict" id="test_file">
-										<input type="submit" value="predict">
-									</div>
-								</div>
-							</form> -->
 							<form method=post enctype=multipart/form-data action="/predict">
 								<input type=file name=file>
 								<input type=submit value=predict>
@@ -198,11 +188,13 @@
 						</div>
 					</div>
 
+					<div class="row">The sales prediction is calculated as {{pred}}</div>
+
 					<div class="row">
 						<div class="col-md-6 section-3-box wow fadeInLeft">
 							<div class="row">
 								<div class="col-md-4 col-md-6">
-									<h3>{{pred}}</h3>
+									<h3>{{graph1}}</h3>
 								</div>
 							</div>
 						</div>
@@ -228,7 +220,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 

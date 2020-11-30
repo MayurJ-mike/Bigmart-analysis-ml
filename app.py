@@ -8,8 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 import numpy as np
 
 app = Flask(__name__)
-model = pickle.load(
-    open(r'C:\Users\SUYASH\Desktop\Bigmart-analysis-ml\model.pkl', 'rb'))
+model = pickle.load(open(r'model.pkl', 'rb'))
 
 
 @app.route('/')
@@ -79,7 +78,7 @@ def predict():
     print(x)
     output = model.predict(X)
     print(output)
-    return render_template('bigmart.html', pred='Prediction of sales is calculated as {}'.format(output))
+    return render_template('bigmart.html', pred='{}'.format(output))
 
 
 if __name__ == "__main__":
