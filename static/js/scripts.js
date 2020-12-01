@@ -47,15 +47,15 @@ jQuery(document).ready(function() {
 	/*
 	    Navigation
 	*/
-	$('a.scroll-link').on('click', function(e) {
+	$('a .scroll-link').on('click', function(e) {
 		e.preventDefault();
-		scroll_to($(this), 0);
+		scroll_to($(this), 750);
 	});
 	
-	$('.to-top a').on('click', function(e) {
+	$('a .to-top').on('click', function(e) {
 		e.preventDefault();
 		if($(window).scrollTop() != 0) {
-			$('html, body').stop().animate({scrollTop: 0}, 1000);
+			$('html, body').stop().animate({scrollTop: 750}, 1000);
 		}
 	});
 	/* make the active menu item change color as the page scrolls up and down */
@@ -80,13 +80,6 @@ jQuery(document).ready(function() {
 	{
 		offset: '-5'
 	});
-
-    /*
-        Background slideshow
-    */
-	$('.top-content').backstretch("../img/bg1.jgp");
-    $('.section-4-container').backstretch("../img/bg22.jpg");
-    $('.section-6-container').backstretch("../img/bg1.jpg");
     
     /*
 	    Wow

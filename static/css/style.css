@@ -295,7 +295,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 /***** Top content *****/
 
-.top-content { width: 100%; padding: 60px 0 120px 0; }
+.top-content { width: 100%; padding: 60px 0 120px 0; background-image: url('../img/bg1.jpg');}
 
 .top-content h1 { padding-top: 60px; color: #fff; }
 .top-content .description { margin: 30px 0 0 0; padding-bottom: 30px; }
@@ -340,6 +340,8 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-3-box h3 { margin-top: 0; padding: 0 0 10px 0; }
 
+/***** Section 4 *****/
+.section-4-container{ background-image: url('../img/bg2.jpg'); background-size: inherit;}
 
 /***** Section 5 *****/
 
@@ -426,6 +428,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 .section-6-social a:hover, 
 .section-6-social a:focus { background: #ccc; background: rgba(255, 255, 255, 0.5); border: 0; color: #555; }
 
+.section-6-container {background-image: url('../img/bg1.jpg');}
 
 /***** Footer *****/
 

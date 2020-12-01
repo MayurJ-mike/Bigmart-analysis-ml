@@ -70,7 +70,7 @@ def predict():
     output = model.predict(X).tolist()
     print(type(output))
     sales = sum(output)
-    return render_template('bigmart.html', pred1="The total expected sales of tested data is {} dollars.".format(sales), pred2=output)
+    return render_template('bigmart.html', pred1="The total number of items sold is {}".format(sales), pred2=output)
 
 
 if __name__ == "__main__":
