@@ -165,14 +165,112 @@
 			<div class="section-5-container section-container" id="section-5">
 				<div class="container">
 					<div class="row">
+						<div class="col section-5 section-description wow fadeIn">
+							<h2>Prediction for single product</h2>
+							<div class="divider-1 wow fadeInUp"><span></span></div>
+						</div>
+					</div>
+					<div class="row">
 						<div class="col-4 col-6 col-8 col-12 section-5-box wow fadeInLeft">
-							<form method=post enctype=multipart/form-data action="/predict">
-								<input type=file name=file>
-								<input type=submit value=predict>
+							<form method=post enctype=multipart/form-data action="/predict_for_one">
+								<div class="row">	
+									<div class="form-group col-4 col-6">
+										<label for="Item_Identifier">Item Identifier</label>
+										<input type="text" class="form-control" id="Item_Identifier" name="Item_Identifier" placeholder="Type item identifier">
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Item_Weight">Item Weight</label>
+										<input type="text" class="form-control" id="Item_Weight" name="Item_Weight" placeholder="Type item weight">
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Item_Fat_Content">Item Fat Content</label>
+										<select class="form-control" id="Item_Fat_Content" name="Item_Fat_Content">
+											<option>Low Fat</option>
+										  	<option>Regular</option>
+										</select>
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Item_Visibility">Item Visibility</label>
+										<input type="text" class="form-control" id="Item_Visibility" name="Item_Visibility" placeholder="Type item visibility">
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Item_Type">Item Type</label>
+										<select class="form-control" id="Item_Type" name="Item_Type">
+											<option>Fruits and Vegetables</option>
+										  	<option>Snack Foods</option>
+										  	<option>Household</option>
+										  	<option>Frozen Foods</option>
+										  	<option>Dairy</option>
+										  	<option>Canned</option>
+										  	<option>Baking Goods</option>
+										  	<option>Health and Hygiene</option>
+										  	<option>Soft Drinks</option>
+										  	<option>Meat</option>
+										  	<option>Breads</option>
+										  	<option>Hard Drinks</option>
+										  	<option>Others</optio>
+										  	<option>Starchy Foods</option>
+										  	<option>Breakfast</option>
+										  	<option>Seafood</option>
+										</select>
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Item_MRP">Item MRP</label>
+										<input type="text" class="form-control" id="Item_MRP" name="Item_MRP" placeholder="Type item MRP">
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Outlet_Identifier">Outlet Identifier</label>
+										<input type="text" class="form-control" id="Outlet_Identifier" name="Outlet_Identifier" placeholder="Type outlet identifier">
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Outlet_Establishment_Year">Outlet Establishment Year</label>
+										<input type="text" class="form-control" id="Outlet_Establishment_Year" name="Outlet_Establishment_Year" placeholder="Type outlet Establishment yearS">
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Outlet_Size">Outlet Size</label>
+										<select class="form-control" id="Outlet_Size" name="Outlet_Size">
+											<option>Small</option>
+										  	<option>Medium</option>
+										  	<option>High</option>
+										</select>
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Outlet_Location_Type">Outlet Location Type</label>
+										<select class="form-control" id="Outlet_Location_Type" name="Outlet_Location_Type">
+											<option>Tier 1</option>
+										  	<option>Tier 2</option>
+										  	<option>Tier 3</option>
+										</select>
+									</div>
+									<div class="form-group col-4 col-6">
+										<label for="Outlet_Type">Outlet Type</label>
+										<select class="form-control" id="Outlet_Type" name="Outlet_Type">
+											<option>Grocery Store</option>
+											<option>Supermarket Type1</option>
+											<option>Supermarket Type2</option>
+											<option>Supermarket Type3</option>
+										</select>
+									</div>
+									<div class="form-group col-4 col-6 col-12">
+										<button class="btn-md btn-success" type=submit value=predict>Predict</button>
+									</div>
+								</div>
 							</form>
 						</div>
-						<div class="col-md-6 col-md-8 col-md-12">
-							<h3>{{pred1}}</h3>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col section-5 section-description wow fadeIn">
+							<h2>Prediction for all products using dataset</h2>
+							<div class="divider-1 wow fadeInUp"><span></span></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4 col-6 col-8 col-12 section-5-box wow fadeInLeft">
+							<form method=post enctype=multipart/form-data action="/predict_for_set">
+								<input type=file name=file>
+								<button class="btn-md btn-success" type=submit value=predict>Predict</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -187,13 +285,16 @@
 							<div class="divider-1 wow fadeInUp"><span></span></div>
 						</div>
 					</div>
-					<div class="row">
+					<!-- div class="row">
            				<div class="col-md-12">
 							{% for k in pred2 %}
-							<h3>Prediction of sales for entry {{loop.index}} is calculated as {{k}}</h3>
+							<h3>For entry {{loop.index}}, number of items sold should be {{k}}</h3>
 							{% endfor %}
             			</div>
-          			</div>
+          			<div -->
+					<div class="col-md-6 col-md-8 col-md-12">
+						<h3>{{pred1}}</h3>
+					</div>
 
 					<div class="row">
 						<div class="col-md-6 section-3-box wow fadeInLeft">
@@ -259,6 +360,7 @@
 					<div class="row">
 						<div class="col-8 section-2-box wow fadeInLeft">
 							<h3>About Us</h3>
+							<div class="divider-1 wow fadeInUp"><span></span></div>
 							<p class="medium-paragraph">
 								We help to analyse sales.
 							</p>
@@ -267,7 +369,7 @@
 							</p>
 						</div>
 						<div class="col-4 section-2-box wow fadeInUp">
-							<img src="./img/about-us.jpg" alt="about-us">
+							<img src="../static/img/about-us.jpg" alt="about-us">
 						</div>
 					</div>
 				</div>
