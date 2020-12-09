@@ -362,7 +362,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-5-box-date i { padding-right: 5px; color: #ddd; }
 
-.section-5-container .section-bottom-button { padding-top: 40px; }
+.section-5-container .section-bottom-button { padding-top: 40px; background-color: gainsboro;}
 
 
 /***** Section 6 *****/

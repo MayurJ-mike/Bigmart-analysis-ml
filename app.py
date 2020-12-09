@@ -56,8 +56,6 @@ def predict_for_set():
     cat_col = ['Item_Fat_Content', 'Item_Type', 'Outlet_Size','Outlet_Location_Type', 'Outlet_Type', 'New_Item_Type']
     for col in cat_col:
         df[col] = le.fit_transform(df[col])
-    # Onehot Encoding
-    df = pd.get_dummies(df, columns=['Item_Fat_Content', 'Outlet_Size', 'Outlet_Location_Type', 'Outlet_Type', 'New_Item_Type'])
     # Input Split
     X = df.drop(columns=['Outlet_Establishment_Year', 'Item_Identifier', 'Outlet_Identifier'])
     print(X)
@@ -112,8 +110,6 @@ def predict_for_one():
     cat_col = ['Item_Fat_Content', 'Item_Type', 'Outlet_Size','Outlet_Location_Type', 'Outlet_Type', 'New_Item_Type']
     for col in cat_col:
         df[col] = le.fit_transform(df[col])
-    # Onehot Encoding
-    df = pd.get_dummies(df, columns=['Item_Fat_Content', 'Outlet_Size', 'Outlet_Location_Type', 'Outlet_Type', 'New_Item_Type'])
     # Input Split
     X = df.drop(columns=['Outlet_Establishment_Year', 'Item_Identifier', 'Outlet_Identifier'])
     print(X)
